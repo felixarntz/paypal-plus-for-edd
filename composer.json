@@ -5,6 +5,8 @@
   "license": "GPL-3.0",
   "type": "wordpress-plugin",
   "keywords": [
+    "wordpress",
+    "plugin",
     "easy-digital-downloads",
     "extension",
     "payment gateway",
