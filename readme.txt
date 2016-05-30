@@ -2,15 +2,14 @@
 
 Plugin Name:       PayPal Plus for Easy Digital Downloads
 Plugin URI:        https://wordpress.org/plugins/paypal-plus-for-edd/
-Author URI:        https://leaves-and-love.net
 Author:            Felix Arntz
-Donate link:       https://leaves-and-love.net/wordpress-plugins/
+Author URI:        https://leaves-and-love.net
 Contributors:      flixos90
-Requires at least: 4.0 
+Requires at least: 4.0
 Tested up to:      4.5.2
 Stable tag:        1.0.0
 Version:           1.0.0
-License:           GPL v3
+License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              easy-digital-downloads, extension, payment gateway, paypal, paypal plus
 
