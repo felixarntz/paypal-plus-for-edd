@@ -1,0 +1,34 @@
+{
+  "name": "felixarntz/paypal-plus-for-edd",
+  "description": "Accept payments through PayPal Plus for your store powered by Easy Digital Downloads.",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "easy-digital-downloads",
+    "extension",
+    "payment gateway",
+    "paypal",
+    "paypal plus"
+  ],
+  "homepage": "https://wordpress.org/plugins/paypal-plus-for-edd/",
+  "authors": [
+    {
+      "name": "Felix Arntz",
+      "email": "felix-arntz@leaves-and-love.net",
+      "homepage": "https://leaves-and-love.net",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "felix-arntz@leaves-and-love.net",
+    "issues": "https://github.com/felixarntz/paypal-plus-for-edd/issues"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "require": {
+    "composer/installers": "~1.0",
+    "paypal/rest-api-sdk-php": "~1.7"
+  }
+}
