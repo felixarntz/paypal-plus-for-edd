@@ -2,13 +2,13 @@
 /**
  * EDD_PayPal_Plus_Extension_Activation class
  *
- * @package EDD\PayPalPlus
+ * @package EDD/PayPalPlus
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  * @since 1.0.0
  */
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) exit;
+if( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * EDD Extension Activation Handler class for PayPal Plus.

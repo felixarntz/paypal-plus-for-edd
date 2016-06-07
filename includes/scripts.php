@@ -2,7 +2,7 @@
 /**
  * Script functions
  *
- * @package EDD\PayPalPlus
+ * @package EDD/PayPalPlus
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  * @since 1.0.0
  */

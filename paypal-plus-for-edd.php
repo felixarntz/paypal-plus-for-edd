@@ -14,7 +14,7 @@ Tags:        easy-digital-downloads, extension, payment gateway, paypal, paypal 
 /**
  * EDD_PayPal_Plus class
  *
- * @package EDD\PayPalPlus
+ * @package EDD/PayPalPlus
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  * @since 1.0.0
  */
@@ -82,16 +82,14 @@ if ( ! class_exists( 'EDD_PayPal_Plus' ) ) {
 		 */
 		private function includes() {
 			require_once EDD_PAYPAL_PLUS_DIR . 'includes/scripts.php';
-			require_once EDD_PAYPAL_PLUS_DIR . 'includes/functions.php';
+			require_once EDD_PAYPAL_PLUS_DIR . 'includes/gateways/paypal-plus.php';
+			require_once EDD_PAYPAL_PLUS_DIR . 'includes/admin/admin-notices.php';
+			require_once EDD_PAYPAL_PLUS_DIR . 'includes/admin/settings/register-settings.php';
 
-			/**
-			 * @todo        The following files are not included in the boilerplate, but
-			 *              the referenced locations are listed for the purpose of ensuring
-			 *              path standardization in EDD extensions. Uncomment any that are
-			 *              relevant to your extension, and remove the rest.
-			 */
-			// require_once EDD_PAYPAL_PLUS_DIR . 'includes/shortcodes.php';
-			// require_once EDD_PAYPAL_PLUS_DIR . 'includes/widgets.php';
+			// only load composer file if PayPal classes are not already loaded by some other plugin
+			if ( ! class_exists( 'PayPal\Api\Authorization' ) && file_exists( EDD_PAYPAL_PLUS_DIR . 'vendor/autoload.php' ) ) {
+				require_once EDD_PAYPAL_PLUS_DIR . 'vendor/autoload.php';
+			}
 		}
 
 		/**
