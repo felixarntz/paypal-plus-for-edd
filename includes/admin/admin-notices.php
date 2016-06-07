@@ -21,8 +21,8 @@ function edd_paypal_plus_admin_notices() {
 		<?php
 	}
 
-	list( $client_id, $secret_id ) = edd_paypal_plus_get_auth();
-	if ( ! $client_id || ! $secret_id ) {
+	list( $client_id, $client_secret ) = edd_paypal_plus_get_auth_data();
+	if ( ! $client_id || ! $client_secret ) {
 		?>
 		<div class="error">
 			<p><?php printf( __( 'Please enter your PayPal Plus Rest API Cient ID and Secret ID <a href="%s">here</a>.', 'paypal-plus-for-edd' ), admin_url( 'edit.php?post_type=download&page=edd-settings' ) ); ?></p>

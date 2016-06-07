@@ -136,6 +136,43 @@ if ( ! class_exists( 'EDD_PayPal_Plus' ) ) {
 	}
 }
 
+function edd_paypal_plus_install_single() {
+	global $edd_options;
+
+	$current_options = get_option( 'edd_settings', array() );
+	if ( ! isset( $current_options['paypal_plus_purchase_page'] ) ) {
+		$page_id = wp_insert_post( array(
+			'post_title'     => __( 'Checkout - PayPal Plus', 'paypal-plus-for-edd' ),
+			'post_content'   => '[download_checkout_paypal_plus]',
+			'post_status'    => 'publish',
+			'post_author'    => 1,
+			'post_type'      => 'page',
+			'comment_status' => 'closed',
+		) );
+
+		$merged_options = array_merge( $edd_options, array( 'paypal_plus_purchase_page' => $page_id ) );
+		$edd_options = $merged_options;
+
+		update_option( 'edd_settings', $merged_options );
+	}
+}
+
+function edd_paypal_plus_install( $network_wide = false ) {
+	global $wpdb;
+
+	if ( is_multisite() && $network_wide ) {
+		$site_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs WHERE site_id = $wpdb->siteid;" );
+		foreach ( $site_ids as $site_id ) {
+			switch_to_blog( $site_id );
+			edd_paypal_plus_install_single();
+			restore_current_blog();
+		}
+	} else {
+		edd_paypal_plus_install_single();
+	}
+}
+register_activation_hook( __FILE__, 'edd_paypal_plus_install' );
+
 /**
  * The main function responsible for returning the one true EDD_PayPal_Plus
  * instance to functions everywhere.
