@@ -84,8 +84,12 @@ fi
 
 cd $SVNPATH/trunk/
 
-printf "Updating composer packages..."
-composer update --prefer-dist --no-dev --quiet
+printf "Installing Composer dependencies..."
+if [ -f composer.lock ]
+	then rm composer.lock
+fi
+rm -rf vendor/
+composer install --prefer-dist --no-dev --quiet
 echo "Done."
 
 printf "Ignoring GitHub specific files and deployment script..."
